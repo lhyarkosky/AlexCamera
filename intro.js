@@ -10,6 +10,7 @@ const curtainLeft = document.getElementById('curtain-left');
 const curtainRight = document.getElementById('curtain-right');
 const site = document.getElementById('site');
 const intro = document.getElementById('intro');
+const skipBtn = document.getElementById('skip-btn');
 
 function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -143,5 +144,12 @@ async function runIntro() {
 startScreen.addEventListener('click', () => {
   runIntro();
 }, { once: true });
+
+skipBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  music.pause();
+  if (intro.parentNode) intro.remove();
+  site.hidden = false;
+});
 
 showScreen(startScreen);

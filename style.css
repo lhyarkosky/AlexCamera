@@ -1,0 +1,255 @@
+:root {
+  --pink: #f7cad0;
+  --pink-deep: #e58fa3;
+  --cream: #fff8f5;
+  --text: #5c4b51;
+  --accent: #f4a3c1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #fff8f5 0%, #fdeef2 100%);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem 1.5rem;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.3rem;
+  color: #d16a8a;
+}
+
+.subtitle {
+  color: #9c7f88;
+  font-size: 1rem;
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 14px rgba(230, 150, 170, 0.15);
+  border: 1px solid #fbe4ea;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #c9648a;
+  font-size: 1.3rem;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: #a58a91;
+  margin-top: -0.4rem;
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+.link-list li {
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.5rem;
+  background: #fff5f7;
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+}
+
+.link-list a {
+  color: #c9648a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link-list a:hover {
+  text-decoration: underline;
+}
+
+.placeholder {
+  color: #c3aab1;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.love-note {
+  text-align: center;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #b45c7d;
+  border-top: 1px dashed #f0b8c8;
+  border-bottom: 1px dashed #f0b8c8;
+}
+
+.love-note.small {
+  font-size: 0.9rem;
+  border: none;
+  padding: 0.5rem;
+}
+
+.note-float {
+  position: fixed;
+  top: 14px;
+  right: 18px;
+  background: var(--pink);
+  color: #a3486a;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(230,150,170,0.3);
+  z-index: 10;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #c39aa8;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 500px) {
+  .note-float { position: static; display: inline-block; margin-bottom: 1rem; }
+  header { padding-top: 1.5rem; }
+}
+
+/* ===================== INTRO SEQUENCE ===================== */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  background: #0b0b0d;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+#start-screen,
+#typewriter-screen,
+#carousel-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+#carousel-screen {
+  background: #0b0b0d;
+  z-index: 1;
+}
+
+#start-screen.visible,
+#typewriter-screen.visible,
+#carousel-screen.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#start-screen {
+  cursor: pointer;
+}
+
+#start-text {
+  color: #a98a92;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.9; }
+}
+
+#typewriter-text {
+  color: #f6dfe6;
+  font-size: 1.4rem;
+  max-width: 640px;
+  padding: 0 2rem;
+  text-align: center;
+  line-height: 1.7;
+}
+
+#typewriter-text::after {
+  content: '|';
+  animation: blink 0.8s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+#carousel-screen {
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#carousel-img {
+  max-width: 80vw;
+  max-height: 70vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  object-fit: contain;
+}
+
+#carousel-img.visible {
+  opacity: 1;
+}
+
+.curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(120deg, #b23a5c, #7a2740 60%, #5c1c30);
+  box-shadow: inset -20px 0 60px rgba(0,0,0,0.4);
+  z-index: 2;
+  transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+#curtain-left {
+  left: 0;
+  transform: translateX(0);
+}
+
+#curtain-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.curtain.open#curtain-left {
+  transform: translateX(-100%);
+}
+
+.curtain.open#curtain-right {
+  transform: translateX(100%);
+}
+
+#site[hidden] {
+  display: none;
+}

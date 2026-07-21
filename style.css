@@ -32,30 +32,65 @@ header h1 {
   font-size: 1rem;
 }
 
-.section-nav {
-  max-width: 700px;
-  margin: 0 auto 1rem;
-  padding: 0 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
 }
 
-.section-nav a {
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem;
+  text-decoration: none;
+  border: 1px solid #fbe4ea;
+  box-shadow: 0 4px 14px rgba(230, 150, 170, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(230, 150, 170, 0.25);
+}
+
+.topic-emoji {
+  font-size: 1.6rem;
+}
+
+.topic-title {
+  color: #c9648a;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.topic-desc {
+  color: #a58a91;
   font-size: 0.85rem;
+}
+
+.back-link {
+  display: block;
+  box-sizing: content-box;
+  margin: 1rem auto 0;
+  max-width: 700px;
+  padding: 0 1.25rem;
   color: #c9648a;
   text-decoration: none;
-  background: #fff0f4;
-  border: 1px solid #fbd6e2;
-  padding: 0.35rem 0.8rem;
-  border-radius: 999px;
-  transition: background 0.2s ease, color 0.2s ease;
+  font-size: 0.9rem;
 }
 
-.section-nav a:hover {
-  background: var(--accent);
-  color: #fff;
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.card h2.notes-heading {
+  color: #b45c7d;
+  font-size: 1rem;
+  margin: 1.4rem 0 0.4rem;
 }
 
 main {

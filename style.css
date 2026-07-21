@@ -32,6 +32,32 @@ header h1 {
   font-size: 1rem;
 }
 
+.section-nav {
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.section-nav a {
+  font-size: 0.85rem;
+  color: #c9648a;
+  text-decoration: none;
+  background: #fff0f4;
+  border: 1px solid #fbd6e2;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.section-nav a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
 main {
   max-width: 700px;
   margin: 0 auto;
@@ -45,12 +71,45 @@ main {
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 14px rgba(230, 150, 170, 0.15);
   border: 1px solid #fbe4ea;
+  scroll-margin-top: 1.5rem;
 }
 
 .card h2 {
   margin-top: 0;
   color: #c9648a;
   font-size: 1.3rem;
+}
+
+.card h3 {
+  color: #b45c7d;
+  font-size: 1rem;
+  margin: 1.4rem 0 0.4rem;
+}
+
+.card h3:first-of-type {
+  margin-top: 1.2rem;
+}
+
+.card p {
+  margin: 0.3rem 0;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  margin: 1rem 0 0.75rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .hint {
